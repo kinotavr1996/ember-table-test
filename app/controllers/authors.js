@@ -26,14 +26,8 @@ export default Ember.Controller.extend({
     actions: {
         sortBy: function (property) {
             this.set('sortProperty', property);
-            if (this.get('reverseSort')){
-                this.set('reverseSort', false);
-            }
-            else{
-                this.set('reverseSort', true);
-            }
-
-        },
+            this.toggleProperty('reverseSort');
+        },   
         autocomplete: function () {
            this.set('filterProperty',this.get('filter'));
            console.log(this.get('filterProperty'));

@@ -1,0 +1,43 @@
+<section class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <h3>Authors</h3>
+            Search: {{input value=filter key-up=(action 'autocomplete' filter)}}
+            <div class="list-group">
+
+                {{#list-pagination paginateBy=10 items=filteredArray as |authors|}}
+                <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th><button class="btn btn-sm btn-success form-control" {{action 'sortBy' 'id'}}>ID</button></th>
+                            <th {{action 'sortBy' 'name'}}>Name</th>
+                            <th {{action "sortBy" "age"}}>Age </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each authors as |author|}} {{log author.gender}}
+                        <tr>
+                            <th>
+                                {{#link-to 'authors.item' author.id class="list-group-item"}} #{{author.id}} {{/link-to}}
+                            </th>
+                            <th>
+                                {{#link-to 'authors.item' author.id class="list-group-item"}} {{author.name}} {{/link-to}}
+                            </th>
+
+                            <th>
+                                {{#link-to 'authors.item' author.id class="list-group-item"}} {{author.age}} {{/link-to}}
+                            </th>
+
+                        </tr>
+                        {{/each}}
+                    </tbody>
+
+                </table>
+                {{/list-pagination}}
+            </div>
+        </div>
+        <div class="col-md-9">
+            {{outlet}}
+        </div>
+    </div>
+</section>

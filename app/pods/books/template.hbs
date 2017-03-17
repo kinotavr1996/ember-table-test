@@ -1,0 +1,17 @@
+<section class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <h3>Books</h3>
+            {{#each model as |book|}}
+                <div class="list-group">
+                    {{#link-to 'books.item' book.id class="list-group-item"}}
+                        {{book.title}}
+                    {{/link-to}}
+                </div>
+            {{/each}}
+        </div>
+        <div class="col-md-9">
+            {{outlet}}
+        </div>
+    </div>
+</section>

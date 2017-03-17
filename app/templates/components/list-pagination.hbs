@@ -1,0 +1,13 @@
+{{yield paginatedItems}}
+
+  {{#if showPrevious}}
+    <button class="btn btn-sm btn-success " {{action "previousClicked"}}>{{previousText}}</button>
+  {{/if}}
+  {{#each pageNumbers as |pageNumber|}}
+ <button class="btn btn-sm btn-success " {{action "pageClicked" pageNumber}}>{{pageNumber}}</button>
+  {{/each}}
+  {{#if showNext}}
+   <button class="btn btn-sm btn-success " {{action "nextClicked"}}>{{nextText}}</button>
+
+  {{/if}}
+      

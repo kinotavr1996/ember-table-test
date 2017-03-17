@@ -1,0 +1,15 @@
+<h3>{{model.name}}</h3>
+{{#link-to "authors.edit" model class="btn btn-default"}}Edit{{/link-to}}
+
+<h4>Collected Works</h4>
+<ul class="list-group"> 
+    {{#each model.books as |book|}}
+        <li class="list-group-item">
+            <span class="badge">{{book.rating}}</span>
+            {{#link-to 'books.item' book}}
+                {{book.title}}
+            {{/link-to}}
+        </li>
+    {{/each}}
+</ul>
+{{outlet}}

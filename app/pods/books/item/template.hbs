@@ -1,0 +1,9 @@
+<h3>{{model.title}}</h3>
+
+
+<h4>Author:
+    {{#link-to 'authors.item' model.author}}
+        {{model.author.name}}
+    {{/link-to}}
+</h4>
+{{outlet}}

@@ -1,0 +1,16 @@
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="form-group">
+            <label>Name</label>
+            {{input value=model.name type="text" class="form-control"}}
+        </div>
+
+        {{!--(action (action this.attrs.foo model))--}}
+
+        {{#spinner-button onclick=(action 'save' model) isSpinning=isSaving class="btn btn-default"}}
+            Save
+        {{/spinner-button}}
+
+        {{#link-to 'authors.item' model class='btn btn-default'}}Cancel{{/link-to}}
+    </div>
+</div>
